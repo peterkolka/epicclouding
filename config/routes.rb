@@ -5,6 +5,10 @@ Epicclouding::Application.routes.draw do
 
   resources :messages
   resources :users, only: [:show, :edit, :update]
+  
+  devise_for :users do
+    get "/sign_out" => "devise/sessions#destroy", :as => :destroy_user_session
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

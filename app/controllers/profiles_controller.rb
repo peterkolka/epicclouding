@@ -1,6 +1,9 @@
 class ProfilesController < ApplicationController
   # GET /profiles
   # GET /profiles.json
+  
+  skip_before_filter :make_profile
+  
   def index
     @profiles = Profile.all
 

@@ -5035,3 +5035,17 @@ a.badge:hover {
 	padding-top: 5px;
 }
 
+.border-top-bottom{
+	border-top: 1px solid #DEDEDE;
+	border-bottom: 1px solid #DEDEDE;	
+	-webkit-box-shadow: 0 0 1px white;
+	-moz-box-shadow: 0 0 1px white;
+	box-shadow: 0 0 1px white;
+}
+
+.border-bottom{
+	border-bottom: 1px solid #DEDEDE;	
+	-webkit-box-shadow: 0 0 1px white;
+	-moz-box-shadow: 0 0 1px white;
+	box-shadow: 0 0 1px white;
+}

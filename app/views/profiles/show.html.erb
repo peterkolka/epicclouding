@@ -1,25 +1,24 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+ 	<div class="span3">
+		<div class="thumbnail">
+			<%= image_tag(@profile.avatar_url)%>
+		</div>
+		<h2 class="border-top-bottom" style="margin-top: 10px; margin-bottom:10px">
+		 <%= @profile.name %>
+		</h2>		
+		<h3 class = "border-bottom" style="padding-bottom: 10px">
+			Joined: <%= I18n.localize(@profile.created_at.to_date, :format => :long)%>
+		</h3>
+		<div style="margin-top: 10px; padding-bottom: 10px ;margin-bottom:10px">
+		 <%= link_to("Message", {}, :class=>"btn btn-large" ) %>
+		</div>
+	</div>
+	<div class="span9">
+		<div class="border-bottom">
+		  	<%= simple_format(@profile.about) %>
+		</div>
+	</div>
 
-<p>
-  <b>User:</b>
-  <%= @profile.user_id %>
-</p>
-
-<p>
-  <b>Name:</b>
-  <%= @profile.name %>
-</p>
-
-<p>
-  <b>About:</b>
-  <%= @profile.about %>
-</p>
-
-<p>
-  <b>Avatar:</b>
-  <%= @profile.avatar %>
-</p>
+</div>
 
 
-<%= link_to 'Edit', edit_profile_path(@profile) %> |
-<%= link_to 'Back', profiles_path %>

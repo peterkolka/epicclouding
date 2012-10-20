@@ -2,7 +2,13 @@ class MessagesController < ApplicationController
   # GET /messages
   # GET /messages.json
   def index
-    @messages = Message.all
+     @profile = current_user.profile
+     @messages = Message.where("user_id or recipient_id =?", current_user.id ).find(
+     	:all, 
+     	:group => 'user_id',  
+     	:order => 'created_at DESC',
+     	:limit => 1
+     )
 
     respond_to do |format|
       format.html # index.html.erb
