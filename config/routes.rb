@@ -1,4 +1,6 @@
 Epicclouding::Application.routes.draw do
+  resources :documents
+
   resources :profiles
 
   devise_for :users

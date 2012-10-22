@@ -5045,7 +5045,65 @@ a.badge:hover {
 
 .border-bottom{
 	border-bottom: 1px solid #DEDEDE;	
-	-webkit-box-shadow: 0 0 1px white;
-	-moz-box-shadow: 0 0 1px white;
+}
+
+.well-nav{
 	box-shadow: 0 0 1px white;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	background: #FAFAFA;
+	padding:2px;
+	padding-left: 8px;
+}
+
+.span2-nav{
+	margin-top: 3px;
+	margin-left: 5px;
+	font-size: 14px !important;
+	width: 160px !important;
+}
+
+.caret-nav{
+	position: relative;
+	top: 5px;
+	left: 5px;
+	border-top: 6px solid black;
+	border-right: 6px solid transparent;
+	border-left: 6px solid transparent;
+	float:right;
+}
+
+.dropdown-menu{
+	margin: 6px 0 0 !important;
+	left: 10px !important;
+}
+
+.block-link{
+	color: #777;
+	&:hover{
+		text-decoration:none;
+	}
+}
+
+.block-link-hover{
+	padding: 5px 15px 0px 15px;
+	&:hover{
+		background: #D0DCE4;
+	}
+}
+
+.link{
+	color:#08C
+}
+
+.datestamp{
+	color: #777;
+	font-size:11px;
+}
+
+.right-filter{
+	float: right;
+	position: relative;
+	top: 15px;
 }

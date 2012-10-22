@@ -45,14 +45,14 @@ class ProfilesController < ApplicationController
   def create
     @profile = Profile.new(params[:profile])
 
-    respond_to do |format|
-      if @profile.save
-        format.html { redirect_to @profile, notice: 'Profile was successfully created.' }
-        format.json { render json: @profile, status: :created, location: @profile }
+    if @profile.update_attributes(params[:profile])
+      if params[:profile][:avatar].present?
+        render :crop
       else
-        format.html { render action: "new" }
-        format.json { render json: @profile.errors, status: :unprocessable_entity }
+        redirect_to @profile, notice: "Successfully updated user."
       end
+    else
+      render :new
     end
   end
 
@@ -61,14 +61,14 @@ class ProfilesController < ApplicationController
   def update
     @profile = Profile.find(params[:id])
 
-    respond_to do |format|
-      if @profile.update_attributes(params[:profile])
-        format.html { redirect_to @profile, notice: 'Profile was successfully updated.' }
-        format.json { head :no_content }
+    if @profile.update_attributes(params[:profile])
+      if params[:profile][:avatar].present?
+        render :crop
       else
-        format.html { render action: "edit" }
-        format.json { render json: @profile.errors, status: :unprocessable_entity }
+        redirect_to @profile, notice: "Successfully updated user."
       end
+    else
+      render :new
     end
   end
 

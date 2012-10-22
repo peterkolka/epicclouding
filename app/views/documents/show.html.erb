@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1 style="margin-top:0px">
+	<%= @document.name %>
+</h1>
+
+
+<div class="row">
+	<div class="span1" style="width:40px">
+		<div class="thumbnail" style="background:white; padding:2px">
+	  <%= image_tag(@document.user.profile.avatar.url(:mini), width: 40) %>
+		</div>
+	</div>
+	<div class="span3" style="margin-left:5px">
+  		<%= @document.user.profile.name %>
+		<div class="datestamp">
+			<%= I18n.localize(@document.created_at.to_date, :format => :long)%>
+		</div>
+	</div>	
+</div>
+
+<div class="row" style="margin-top:10px">
+	<div class="span12">
+	<p>
+	  <%= @document.description %>
+	</p>
+	</div>
+</div>
+
+
+  <%= link_to("Download", @document.file_url, :class=>"btn btn-large btn-right btn-success" )  %>
+
+
+
+
+

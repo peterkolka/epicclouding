@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
 
   has_many :messages
   has_one :profile
+  has_many :documents
+  
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :avatar, :about
   # attr_accessible :title, :body

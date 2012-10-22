@@ -1,0 +1,13 @@
+<%= link_to(document, :class=>"block-link") do%>
+<div class="border-bottom">
+<div class="block-link-hover">
+		<h2 class="link" style="line-height:24px">
+			<%= document.name %>
+		</h2>
+		<div class="datestamp">
+			<%= I18n.localize(document.created_at.to_date, :format => :long)%>
+		</div>
+		<%= truncate(document.description, :length=>270) %>
+	</div>
+</div>
+<%end%>
