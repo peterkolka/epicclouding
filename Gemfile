@@ -25,7 +25,7 @@ gem 'devise'
 gem "rmagick"
 gem "carrierwave"
 gem 'bootstrap-will_paginate'
-gem 'fog'
+#gem 'fog'
 gem 'will_paginate-bootstrap'
 
 
