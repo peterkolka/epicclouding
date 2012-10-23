@@ -1,0 +1,87 @@
+
+<head>
+		<title>Epic Clouding</title> 
+	    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
+	  <%= stylesheet_link_tag    "application", :media => "all" %>
+	  <%= javascript_include_tag "application" %>
+	  <%= csrf_meta_tags %>
+	    <script>
+	    $(function() {
+	        $( "#slider-range-max" ).slider({
+	            range: "max",
+	            min: 20,
+	            max: 500,
+	            slide: function( event, ui ) {
+	                $( "#user_amount" ).val( ui.value );
+					if(ui.value == 20) {
+					 $( "#cost" ).val("free");
+					 $("#not-free").hide();
+					 $("#free").show();
+					}	
+					else{
+						$( "#cost" ).val( (ui.value *2) );
+						$("#not-free").show();
+					 	$("#free").hide();
+					}
+	            }
+	        });
+	        $( "#user_amount" ).val( $( "#slider-range-max" ).slider( "value" ) );
+			$("#not-free").hide();
+	    });
+	    </script>
+		<script>
+
+		jQuery(function() {
+
+			$("#sign-up-form").hide();
+			$("#not-free").click(function() {
+			  $("#sign-up-form").show();
+			  $("#initial-form").hide();			
+			});
+			$("#free").click(function() {
+			  $("#sign-up-form").show();
+			  $("#initial-form").hide();			
+			});
+		});
+
+		</script>
+</head>
+
+<body>
+	 <div class="navbar-inner" style="margin-bottom: 40px; height: 400px;">
+	    <div class="container">
+	      	<div style="padding-top:5px;">	
+				<div class="row">					
+					<div class="span3 offset9" style="padding-top:5px;">
+							<div class="btn-group">					
+								<a class="btn" href="account.html">sign up</a>	
+								<a class="btn" href="account.html">sign in</a>
+							</div>		
+					</div>		
+					<div class="span5" style="position: relative;  left:-30px; top:40px;">
+							<%=image_tag("img/cloud-large.png")%>								
+					</div>
+					<div class="span7" style="position: relative; top: 140px;">
+							<%=image_tag("img/macbook-air.png")%>
+					</div>
+				</div>
+	      	</div>
+	    </div>
+	 </div>
+
+
+	<div class="container">
+		<%= yield %>
+
+	
+		
+		<div class="row" style="margin-top:40px">
+			<div class="span12">
+				<div class="footer">
+					<a href="#"> terms of service </a> | <a href="#"> privacy policy </a> | <a href="#"> about </a> |  <a href="#"> contact </a>
+				</div>
+			</div>				
+		</div>
+		
+		
+	</div>

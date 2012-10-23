@@ -1,28 +1,96 @@
+
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+	<div class="row">
+		<div class="span12" style="width:100%;  margin-bottom: 10px;-moz-box-shadow: 0 0 1px 1px #fdfdfd; border: 1px solid #DEDEDE; box-shadow:  0 0 1px 1px #FDFDFD; -webkit-box-shadow:  0 0 1px 1px #FDFDFD;  background: #ECECEC">
+			<div class="row">
+				<div class="span6">
+					<div style="padding:20px; padding-right:0px">
+						<h2>Create an account today!</h2>
+						<div class="fields" style="margin-bottom: 20px">
+							<div id="slider-range-max" style="margin-bottom:20px"></div>
+
 				
-<div class="row" style="margin-top:10px">
-	<div class="span6 offset6">
-		<div class="well-border-left">
-			<h2>Sign up</h2>
+							<div style="display:inline; margin-right: 20px;  font-size:14px">
+								<div class="input-prepend input-append" style="display:inline">
+									<%= f.text_field(:amount, :style=>"color: #08C; font-weight: bold; width:100px; height: 28px")  %><span class="add-on">GB</span>
+									</div>
+							</div>
+							<div style="display:inline; margin-right: 20px;  font-size:14px">
+								<div class="input-prepend input-append" style="display:inline">
+								  <span class="add-on">$</span><input type="text" id="cost" style="color: #2EB441; font-weight: bold; width:100px; height: 28px" value="free"><span class="add-on">.00</span>
+								</div>
 
-			<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-			  <%= devise_error_messages! %>
+							</div>
+						</div>
+					</div>
+				</div>
+			
 
-			  <div><%= f.label :email %><br />
-			  <%= f.email_field :email %></div>
-
-			  <div><%= f.label :password %><br />
-			  <%= f.password_field :password %></div>
-
-			  <div><%= f.label :password_confirmation %><br />
-			  <%= f.password_field :password_confirmation %></div>
-
-			  <div><%= f.submit "Sign up" %></div>
-			<% end %>
-
-			<%= render "devise/shared/links" %>
+				<div class="span6" style="border-left: 1px solid #DEDEDE; min-height: 160px;">
+					<div style="padding-left:20px">
+						<div id="initial-form">
+							Just use the slider below to ______.
+							<div id="free">
+								<a class="btn btn-success btn-large" style="width:130px">Start Free Trial</a>
+							</div>
+							<div id="not-free">
+								<a class="btn btn-success btn-large" style="width:130px">Create Account</a>
+							</div>	
+						</div>
+						<div id ="sign-up-form">
+					  		<%= devise_error_messages! %>				
+							<div><%= f.label :email %>
+						  	<%= f.email_field :email %></div>
+							<div><%= f.label :password %>
+							<%= f.password_field :password %></div>
+							<div><%= f.label :password_confirmation %>
+							<%= f.password_field :password_confirmation %></div>
+							<%=f.submit("Sign up", :class=>"btn btn-success btn-large")%>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
-</div>
+<% end %>		
+
+	
+
+	<div class="row">
+		<div class="span4">
+			<div style="font-weight: bold; text-shadow: white 0 1px 0; font-size: 18px; margin-bottom:5px">create an account</div>
+			<div style="width:100%; height:200px; margin-bottom: 10px;-moz-box-shadow: 0 0 1px 1px #fdfdfd; border: 1px solid #DEDEDE; box-shadow:  0 0 1px 1px #FDFDFD; -webkit-box-shadow:  0 0 1px 1px #FDFDFD;">
+				<%=image_tag("img/profile.png")%>
+			</div>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+			<a href="#"> learn more </a>
+		</div>
+		<div class="span4">
+			<div style="font-weight: bold; text-shadow: white 0 1px 0; font-size: 18px; margin-bottom:5px">upload files</div>
+			<div style="width:100%; height:200px; margin-bottom: 10px;-moz-box-shadow: 0 0 1px 1px #fdfdfd; border: 1px solid #DEDEDE; box-shadow:  0 0 1px 1px #FDFDFD; -webkit-box-shadow:  0 0 1px 1px #FDFDFD;">
+				<%=image_tag("img/files.png")%>
+			</div>	
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+			<a href="#"> learn more </a>						
+		</div>
+		<div class="span4" style="cursor: pointer">
+			<div style="font-weight: bold; text-shadow: white 0 1px 0; font-size: 18px; margin-bottom:5px">share with friends</div>
+			<div style="width:100%; height:200px; margin-bottom: 10px;-moz-box-shadow: 0 0 1px 1px #fdfdfd; border: 1px solid #DEDEDE; box-shadow:  0 0 1px 1px #FDFDFD; -webkit-box-shadow:  0 0 1px 1px #FDFDFD;">
+				<%=image_tag("img/home.png")%>
+				<div style="height:25px; background: #333; color: white; opacity:0.8; position:relative; top:-25px; padding-top:5px; padding-left:20px">
+					info about sharing
+				</div>
+			</div>	
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.	
+			<a href="#"> learn more </a>						
+		</div>						
+	</div>
+
+	
+	
+	
+
 
 
 

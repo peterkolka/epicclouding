@@ -1,25 +1,77 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+	    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
+<script>
+$(function() {
+    $( "#slider-range-max" ).slider({
+        range: "max",
+        min: 20,
+        max: 500,
+        slide: function( event, ui ) {
+            $( "#user_amount" ).val( ui.value );
+			if(ui.value == 20) {
+			 $( "#cost" ).val("free");
+			}	
+			else{
+				$( "#cost" ).val( (ui.value *2) );
+			}
+        }
+    });
+    $( "#user_amount" ).val( $( "#slider-range-max" ).slider( "value" ) );
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= devise_error_messages! %>
+});
+</script>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+<%@profile = current_user.profile%>
+<div class="row">
+<div class="span3">
+	<div class="thumbnail">
+		<%= image_tag(@profile.avatar.url(:thumb))%>
+	</div>
+	<h2 class="border-top-bottom" style="margin-top: 10px; margin-bottom:10px">
+	 <%= @profile.name %>
+	</h2>		
+	<h3 class = "border-bottom" style="padding-bottom: 10px">
+		Joined: <%= I18n.localize(@profile.created_at.to_date, :format => :long)%>
+	</h3>
+	<div style="margin-top: 10px; padding-bottom: 10px ;margin-bottom:10px">
+	 <%= link_to("Message", {}, :class=>"btn btn-large" ) %>
+	</div>
+</div>
 
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-  <%= f.password_field :password, :autocomplete => "off" %></div>
+	<div class="span9">
+		<div class="well" style="padding:20px; padding-bottom:10px;">
+			<h2>Update Account</h2>
+			<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+				<%= devise_error_messages! %>	
+				<div class="fields" style="margin-bottom: 20px">
+					<div style="font-weight:bold; margin-top: 10px; margin-bottom:10px">
+						Cloud Size
+					</div>
+					<div id="slider-range-max" style="margin-bottom:20px"></div>
+						<div style="display:inline; margin-right: 20px;  font-size:14px">
+						<div class="input-prepend input-append" style="display:inline">
+							<%= f.text_field(:amount, :style=>"color: #08C; font-weight: bold; width:100px; height: 26px; padding:0px; padding-left: 10px;")  %><span class="add-on">GB</span>
+						</div>
+					</div>
+					<div style="display:inline; margin-right: 20px;  font-size:14px">
+						<div class="input-prepend input-append" style="display:inline">
+						  <span class="add-on">$</span><input type="text" id="cost" style="padding:0px; padding-left: 10px; color: #2EB441; font-weight: bold; width:100px; height: 26px" value="free"><span class="add-on">.00</span>
+						</div>
+					</div>
+					<div style="margin-top:10px">
+						<%= f.label :email %>
+						<%= f.email_field :email %>
+					</div>
+					<div>
+						<%= f.label :current_password, :style=>"display:inline;" %> <i>(we need your current password to confirm your changes)</i><br>
+  						<%= f.password_field :current_password %>
+					</div>
+					<div style="text-align:center;">
+						<%= f.submit("Update", :class=>"btn btn-success btn-large") %>
+					</div>
+			<% end %>
+		</div>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+		</div>
+	</div>
 
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-  <%= f.password_field :current_password %></div>
-
-  <div><%= f.submit "Update" %></div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %>.</p>
-
-<%= link_to "Back", :back %>
+</div>

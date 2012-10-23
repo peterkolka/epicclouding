@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121021233347) do
+ActiveRecord::Schema.define(:version => 20121023210236) do
 
   create_table "documents", :force => true do |t|
     t.integer  "user_id"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(:version => 20121021233347) do
     t.integer  "state_id"
     t.integer  "country_id"
     t.boolean  "tos"
+    t.integer  "amount"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
