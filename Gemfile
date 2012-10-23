@@ -22,11 +22,12 @@ end
 
 gem 'jquery-rails'
 gem 'devise'
-gem "rmagick"
+gem "rmagick", '2.12.2'
 gem "carrierwave"
 gem 'bootstrap-will_paginate'
 #gem 'fog'
 gem 'will_paginate-bootstrap'
+
 
 
 # To use ActiveModel has_secure_password
