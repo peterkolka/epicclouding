@@ -21,30 +21,12 @@
 
 
 	<div class="span9">
-			<%= link_to new_document_path, {:class=>"btn btn-success btn-right",:style=>"margin-bottom:10px"} do %>
-				<i class="icon-upload icon-white"></i>
-				Upload New File
-			<%end%>	
-		<table class=" table table-cloud">
-			<tr>
-				<th>
-					Name
-				</th>
-				<th>
-					File Type
-				</th>
-				<th>
-					Uploaded
-				</th>
-				<th>
-				</th>
-			</tr>
-								
-			<%= render @documents%>
-
-		</table>
+		<h1>Share: <%=  @share.document.name %> </h1>
+		<h3>
+			Link to file <%=link_to(@share.document.name, @share.document.file_url )%>
+		</h3>
+		<h3>
+			URL: <%="http://#{request.host+request.fullpath}"%>
+		</h3>
 	</div>
-
 </div>
-
-

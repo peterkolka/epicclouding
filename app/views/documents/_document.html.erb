@@ -1,13 +1,20 @@
-<%= link_to(document, :class=>"block-link") do%>
-<div class="border-bottom">
-<div class="block-link-hover">
-		<h2 class="link" style="line-height:24px">
-			<%= document.name %>
-		</h2>
-		<div class="datestamp">
+
+	<tr>
+		<td>
+			<%=image_tag("file.png")%>
+			<%= link_to(document.name, document) %>
+		</td>
+		<td>
+			<%= document.extension_type %>
+		</td>
+		<td>
 			<%= I18n.localize(document.created_at.to_date, :format => :long)%>
-		</div>
-		<%= truncate(document.description, :length=>270) %>
-	</div>
-</div>
-<%end%>
+		</td>	
+		<td>
+			<% if Share.where(document_id: document.id).any?%>
+				<%= link_to(image_tag("link.png"), Share.find_by_document_id(document.id)) %>			
+			<%else%>
+				<%= link_to(image_tag("link.png"), share_document_path(document.id), :class=>"share-link") %>
+			<%end%>
+		</td>					
+	</tr>

@@ -1,0 +1,25 @@
+<%= form_for(@share) do |f| %>
+<div class="modal">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3>Share File</h3>
+  </div>
+  <div class="modal-body">
+    <p>You are about to share this file. If you would like to password protect the file, just enter a password below</p>
+
+	<div class="fields">
+		<%= f.label :encrypted_password, "Password"%>	
+		<%= f.password_field :encrypted_password%>
+	</div>
+<%=f.hidden_field :user_id%>
+<%=f.hidden_field :document_id%>
+
+
+	
+  </div>
+  <div class="modal-footer">
+	<%=link_to("exit", documents_path,:class=>"btn")%>
+	<%=f.submit("Generate Share Link", :class=>"btn btn-success")%>
+  </div>
+</div>
+<% end %>

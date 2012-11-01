@@ -1556,6 +1556,16 @@ table {
   border-top: 2px solid #dddddd;
 }
 
+
+.table-cloud{
+	th{
+		background: #08C;
+		color: white;
+	}
+}
+
+
+
 .table-condensed th,
 .table-condensed td {
   padding: 4px 5px;
@@ -1625,8 +1635,8 @@ table {
 }
 
 .table tbody tr:hover td,
-.table tbody tr:hover th {
-  background-color: #f5f5f5;
+ {
+  background-color: #F7E7B8;
 }
 
 table .span1 {
@@ -5111,4 +5121,11 @@ a.badge:hover {
 #sign-up-form{
 padding:20px;
 padding-left:0px;	
+}
+
+.share-link{
+	opacity: .50;
+	&:hover{
+	opacity: 1;
+	}
 }

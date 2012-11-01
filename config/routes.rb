@@ -1,4 +1,6 @@
 Epicclouding::Application.routes.draw do
+  resources :shares
+
   resources :documents
 
   resources :profiles
@@ -7,6 +9,8 @@ Epicclouding::Application.routes.draw do
 
   resources :messages
   resources :users, only: [:show, :edit, :update]
+  
+  match "share/:id", to: "shares#new", as: "share_document"
   
   devise_for :users do
     get "/sign_out" => "devise/sessions#destroy", :as => :destroy_user_session
