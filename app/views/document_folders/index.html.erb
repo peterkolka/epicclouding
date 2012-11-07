@@ -1,0 +1,23 @@
+<h1>Listing document_folders</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @document_folders.each do |document_folder| %>
+  <tr>
+    <td><%= document_folder.name %></td>
+    <td><%= link_to 'Show', document_folder %></td>
+    <td><%= link_to 'Edit', edit_document_folder_path(document_folder) %></td>
+    <td><%= link_to 'Destroy', document_folder, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Document folder', new_document_folder_path %>

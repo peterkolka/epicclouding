@@ -1,4 +1,6 @@
 Epicclouding::Application.routes.draw do
+  resources :document_folders
+
   resources :shares
 
   resources :documents

@@ -14,17 +14,42 @@
 
 		<h3 class = "border-bottom" style="margin-top: 10px; padding-bottom: 10px">
 			<%= pluralize(current_user.documents.count, "Upload")%> 
-		</h3>	
+		</h3>
 		
-
+		
+			<div style="background:white; min-height: 300px; border: 5px solid #BCD1DC ">
+				
+			</div>
+	
 	</div>
 
 
 	<div class="span9">
-			<%= link_to new_document_path, {:class=>"btn btn-success btn-right",:style=>"margin-bottom:10px"} do %>
+		<div style="float:right; overflow:hidden">
+			<%= link_to new_document_folder_path, {:class=>"btn btn-primary",:style=>"margin-bottom:10px"} do %>
+				<i class="icon-folder-open icon-white"></i>
+				Create Folder
+			<%end%>		
+			<%= link_to new_document_path, {:class=>"btn btn-primary",:style=>"margin-bottom:10px"} do %>
+				<i class="icon-download icon-white"></i>
+				Download
+			<%end%>
+				
+			<%= link_to new_document_path, {:class=>"btn btn-primary",:style=>"margin-bottom:10px"} do %>
+				<i class="icon-move icon-white"></i>
+				Move
+			<%end%>
+		
+			<%= link_to new_document_path, {:class=>"btn btn-danger",:style=>"margin-bottom:10px"} do %>
+				<i class="icon-remove-sign icon-white"></i>
+				Delete
+			<%end%>				
+			<%= link_to new_document_path, {:class=>"btn btn-success",:style=>"margin-bottom:10px"} do %>
 				<i class="icon-upload icon-white"></i>
 				Upload New File
 			<%end%>	
+		</div>
+		
 		<table class=" table table-cloud">
 			<tr>
 				<th>
