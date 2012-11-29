@@ -44,7 +44,7 @@ class DocumentFoldersController < ApplicationController
 
     respond_to do |format|
       if @document_folder.save
-        format.html { redirect_to @document_folder, notice: 'Document folder was successfully created.' }
+        format.html { redirect_to root_url, notice: 'Folder created.' }
         format.json { render json: @document_folder, status: :created, location: @document_folder }
       else
         format.html { render action: "new" }

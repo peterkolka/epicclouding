@@ -15,4 +15,5 @@
 //= require jquery-ui
 //= require twitter/bootstrap
 //= require jquery.Jcrop
+//= require jquery-fileupload
 //= require_tree .

@@ -11,12 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121107100318) do
+ActiveRecord::Schema.define(:version => 20121125032200) do
 
   create_table "document_folders", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.integer  "parent_folder_id"
+    t.integer  "user_id"
   end
 
   create_table "documents", :force => true do |t|
@@ -25,8 +27,9 @@ ActiveRecord::Schema.define(:version => 20121107100318) do
     t.string   "file"
     t.text     "description"
     t.boolean  "public"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.integer  "document_folder_id"
   end
 
   create_table "messages", :force => true do |t|

@@ -1,5 +1,20 @@
 <h1>New document</h1>
 
-<%= render 'form' %>
+<%= form_for Document.new do |f|%>
+	<%= f.label :file, "Upload file"%>
+	<%= f.file_field :file, multiple: true, name: "document[file]" %>	
+<%end%>
 
-<%= link_to 'Back', documents_path %>
+<div class="drop-zone" style="border: 2px solid red; height: 100px; width:100%">
+	
+</div>
+
+<div id="documents"></div>
+
+<script id="template-upload" type="text/x-tmpl">
+<div class="upload">
+  {%=o.name%}
+  <div class="progress"><div class="bar" style="width: 0%"></div></div>
+</div>
+</script>
+

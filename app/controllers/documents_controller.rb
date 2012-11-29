@@ -28,7 +28,8 @@ class DocumentsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @document }
+      format.json { render json: @documents.map{|document| document.to_jq_upload } }
+      
     end
   end
 
@@ -40,14 +41,18 @@ class DocumentsController < ApplicationController
   # POST /documents
   # POST /documents.json
   def create
-    @document = current_user.documents.new(params[:document])
+    @document = current_user.documents.create(params[:document])
 
-    respond_to do |format|
+   respond_to do |format|
       if @document.save
-        format.html { redirect_to @document, notice: 'Document was successfully created.' }
-        format.json { render json: @document, status: :created, location: @document }
+       format.html  {
+                  render :json => [@document.to_jq_upload].to_json,
+                  :content_type => 'text/html',
+                  :layout => false
+                }
+       format.json { render json: [@document.to_jq_upload].to_json, status: :created, location: @document }
       else
-        format.html { render action: "new" }
+       format.html { render action: "new" }
         format.json { render json: @document.errors, status: :unprocessable_entity }
       end
     end

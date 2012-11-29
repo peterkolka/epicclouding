@@ -10,9 +10,14 @@
       </ul>
     </div>
   <% end %>
+  <div class="field">
+    <%= f.label :parent_folder_id %>
+	<%= f.collection_select :parent_folder_id, current_user.document_folders.order(:name), :id, :name, include_blank: true %>
+  </div>
 	  <div class="field">
 	    <%= f.label :name %>
 	    <%= f.text_field :name %>
+	    <%= f.hidden_field :user_id, value: current_user.id %>	
 	  </div>
 	  </div>
 	  <div class="modal-footer">

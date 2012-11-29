@@ -1,3 +1,44 @@
+.top-left-radius{
+	-webkit-border-top-left-radius: 8px;
+	-moz-border-radius-topleft: 8px;
+	border-top-left-radius: 8px;
+}
+.top-right-radius{
+	-webkit-border-top-right-radius: 8px;
+	-moz-border-radius-topright: 8px;
+	border-top-right-radius: 8px;
+}
+.bottom-left-radius{
+	-webkit-border-bottom-left-radius: 8px;
+	-moz-border-radius-bottomleft: 8px;
+	border-bottom-left-radius: 8px;
+}
+.bottom-right-radius{
+	-webkit-border-bottom-right-radius: 8px;
+	-moz-border-radius-bottomright: 8px;
+	border-bottom-right-radius: 8px;
+}
+
+.fileinput-button {
+position: relative;
+overflow: hidden;
+float: left;
+margin-right: 4px;
+	input {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 0;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	transform: translate(-300px, 0) scale(4);
+	font-size: 23px;
+	direction: ltr;
+	cursor: pointer;
+	}
+
+}
+
 
 article,
 aside,
@@ -1532,7 +1573,7 @@ table {
   line-height: 18px;
   text-align: left;
   vertical-align: top;
-  border-top: 1px solid #dddddd;
+ // border-top: 1px solid #dddddd;
 }
 
 .table th {
@@ -1558,9 +1599,24 @@ table {
 
 
 .table-cloud{
+	background: white; border: 1px solid #DEDEDE; -webkit-box-shadow: 0 0 1px white;
+	-moz-box-shadow: 0 0 1px white;
+	box-shadow: 0 0 1px white;
+	
+	-webkit-border-top-left-radius: 8px;
+	-moz-border-radius-topleft: 8px;
+	border-top-left-radius: 8px;
+	
+		-webkit-box-shadow: inset 0 0 4px #E7E7E7;
+		-moz-box-shadow: inset 0 0 4px #E7E7E7;
+		box-shadow: inset 0 0 4px #E7E7E7;
+		-webkit-border-radius: 10px;
+	     -moz-border-radius: 10px;
+	          border-radius: 10px;	
 	th{
 		background: #08C;
 		color: white;
+		
 	}
 }
 
@@ -3656,8 +3712,8 @@ input[type="submit"].btn.btn-mini {
   min-height: 50px;
   padding-right: 20px;
   padding-left: 20px;
-  background: url("headerback.png");
-
+//  background: url("headerback.png");
+	background-color: #333333;;
   -webkit-box-shadow: 0 1px 30px rgba(0, 0, 0, 0.3), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
      -moz-box-shadow: 0 1px 30px rgba(0, 0, 0, 0.3), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
           box-shadow: 0 1px 30px rgba(0, 0, 0, 0.3), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
@@ -3688,6 +3744,25 @@ input[type="submit"].btn.btn-mini {
   font-weight: 200;
   line-height: 1;
   color: #999999;
+}
+
+.navbar-static-bottom{
+	border-top:1px solid #DEDEDE;	
+	//min-height: 100px;
+	margin-bottom: 0px;
+	padding-top: 10px;
+	padding-bottom: 10px;	
+	background: #E0E0E0 ;
+	background: -moz-linear-gradient(top, #F2F2F2 0%, #E0E0E0 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #F2F2F2), color-stop(100%, #E0E0E0));
+	background: -webkit-linear-gradient(top, #F2F2F2 0%, #E0E0E0 100%);
+	background: -o-linear-gradient(top, #F2F2F2 0%, #E0E0E0 100%);
+	background: -ms-linear-gradient(top, #F2F2F2 0%, #E0E0E0 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F2F2F2', endColorstr='#E0E0E0',GradientType=0 );
+	background: linear-gradient(top, #F2F2F2 0%, #E0E0E0 100%);
+	-webkit-box-shadow: 0 0 1px white;
+	-moz-box-shadow: 0 0 1px white;
+	box-shadow: 0 0 1px white;	
 }
 
 .navbar .navbar-text {
@@ -3946,6 +4021,8 @@ input[type="submit"].btn.btn-mini {
 .btn-navbar .icon-bar + .icon-bar {
   margin-top: 3px;
 }
+
+
 
 .navbar .dropdown-menu:before {
   position: absolute;
@@ -5065,6 +5142,7 @@ a.badge:hover {
 	background: #FAFAFA;
 	padding:2px;
 	padding-left: 8px;
+	margin-bottom: 0px !important;
 }
 
 .span2-nav{

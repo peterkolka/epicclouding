@@ -11,6 +11,9 @@
 			<%= I18n.localize(document.created_at.to_date, :format => :long)%>
 		</td>	
 		<td>
+			<%= document.file_size %>
+		</td>		
+		<td>
 			<% if Share.where(document_id: document.id).any?%>
 				<%= link_to(image_tag("link.png"), Share.find_by_document_id(document.id)) %>			
 			<%else%>

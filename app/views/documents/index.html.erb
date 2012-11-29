@@ -12,62 +12,50 @@
 			Joined: <%= I18n.localize(current_user.profile.created_at.to_date, :format => :long)%>
 		</h3>
 
-		<h3 class = "border-bottom" style="margin-top: 10px; padding-bottom: 10px">
+		<h3  style="margin-top: 10px; padding-bottom: 10px">
 			<%= pluralize(current_user.documents.count, "Upload")%> 
 		</h3>
+		<div class="progress progress-warning" style="margin-bottom: 0px; background: white;border: 1px solid #DEDEDE;
 		
-		
-			<div style="background:white; min-height: 300px; border: 5px solid #BCD1DC ">
+			-webkit-box-shadow: inset 0 0 2px #E7E7E7;
+			-moz-box-shadow: inset 0 0 2px #E7E7E7;
+			box-shadow: inset 0 0 2px #E7E7E7
+		">
+		  <div class="bar" style="width: <%=current_user.percent_used%>"></div>
+		</div>
+		<div style="text-align: right; font-size: 11px; line-height: 11px; margin-bottom: 20px; margin-top: 5px;">
+			<%=current_user.amount_used%>GM of <%=current_user.amount%>GB used 
+		</div>
 				
+			<div style="padding: 20px; background:white; min-height: 300px; border: 1px solid #DEDEDE; -webkit-box-shadow: 0 0 1px white;
+			-moz-box-shadow: 0 0 1px white;
+			box-shadow: 0 0 1px white;
+			
+				-webkit-box-shadow: inset 0 0 4px #E7E7E7;
+				-moz-box-shadow: inset 0 0 4px #E7E7E7;
+				box-shadow: inset 0 0 4px #E7E7E7;
+			
+			">
+			
+				<% current_user.document_folders.where("parent_folder_id is null").each do |document_folder|%>
+				<div>					
+				<i class="icon-folder-close"></i>	<%=link_to(document_folder.name, {})%>
+				<%= render document_folder.document_folders%>
+				</div>
+				<%end%>
+							
 			</div>
 	
 	</div>
 
 
 	<div class="span9">
-		<div style="float:right; overflow:hidden">
-			<%= link_to new_document_folder_path, {:class=>"btn btn-primary",:style=>"margin-bottom:10px"} do %>
-				<i class="icon-folder-open icon-white"></i>
-				Create Folder
-			<%end%>		
-			<%= link_to new_document_path, {:class=>"btn btn-primary",:style=>"margin-bottom:10px"} do %>
-				<i class="icon-download icon-white"></i>
-				Download
-			<%end%>
-				
-			<%= link_to new_document_path, {:class=>"btn btn-primary",:style=>"margin-bottom:10px"} do %>
-				<i class="icon-move icon-white"></i>
-				Move
-			<%end%>
-		
-			<%= link_to new_document_path, {:class=>"btn btn-danger",:style=>"margin-bottom:10px"} do %>
-				<i class="icon-remove-sign icon-white"></i>
-				Delete
-			<%end%>				
-			<%= link_to new_document_path, {:class=>"btn btn-success",:style=>"margin-bottom:10px"} do %>
-				<i class="icon-upload icon-white"></i>
-				Upload New File
-			<%end%>	
+		<div class="row">
+			<div class="span9">
+				<%= render '/documents/form'%>
+			</div>
 		</div>
 		
-		<table class=" table table-cloud">
-			<tr>
-				<th>
-					Name
-				</th>
-				<th>
-					File Type
-				</th>
-				<th>
-					Uploaded
-				</th>
-				<th>
-				</th>
-			</tr>
-								
-			<%= render @documents%>
-
-		</table>
 	</div>
 
 </div>
