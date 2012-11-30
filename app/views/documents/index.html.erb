@@ -39,8 +39,10 @@
 			
 				<% current_user.document_folders.where("parent_folder_id is null").each do |document_folder|%>
 				<div>					
-				<i class="icon-folder-close"></i>	<%=link_to(document_folder.name, {})%>
-				<%= render document_folder.document_folders%>
+				<i class="icon-folder-close"></i>	<%=link_to(document_folder.name, document_folder, remote: true)%>
+					<div id="folder-<%=document_folder.id%>">
+						
+					</div>
 				</div>
 				<%end%>
 							
@@ -52,7 +54,9 @@
 	<div class="span9">
 		<div class="row">
 			<div class="span9">
-				<%= render '/documents/form'%>
+				<div id='folder-files'>
+					<%= render '/documents/form'%>
+				</div>
 			</div>
 		</div>
 		

@@ -18,6 +18,7 @@ class DocumentFoldersController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @document_folder }
+      format.js
     end
   end
 

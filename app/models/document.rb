@@ -11,9 +11,9 @@ class Document < ActiveRecord::Base
 
   def to_jq_upload
     {
-      "name" => read_attribute(:document_file_name),
+      "name" => read_attribute(:document_name),
       "size" => read_attribute(:document_file_size),
-      "url" => file.url,
+      "url" => self.file_url,
       "delete_url" => document_path(self),
       "delete_type" => "DELETE" 
     }

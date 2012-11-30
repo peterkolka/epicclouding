@@ -9,7 +9,7 @@ Epicclouding::Application.routes.draw do
 
   devise_for :users
 
-  resources :messages
+  
   resources :users, only: [:show, :edit, :update]
   
   match "share/:id", to: "shares#new", as: "share_document"
