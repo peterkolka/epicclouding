@@ -6,7 +6,8 @@ class DocumentsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @documents }
+   #   format.json { render json: @documents }
+        format.json { render json: @documents.map{|document| document.to_jq_upload } } 
     end
   end
 
