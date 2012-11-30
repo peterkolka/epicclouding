@@ -1,5 +1,3 @@
-
-
 <div class="row">
  	<div class="span3">
 		<div class="thumbnail">
@@ -27,15 +25,12 @@
 			<%=current_user.amount_used%>GM of <%=current_user.amount%>GB used 
 		</div>
 				
-			<div style="padding: 20px; background:white; min-height: 300px; border: 1px solid #DEDEDE; -webkit-box-shadow: 0 0 1px white;
-			-moz-box-shadow: 0 0 1px white;
-			box-shadow: 0 0 1px white;
-			
-				-webkit-box-shadow: inset 0 0 4px #E7E7E7;
-				-moz-box-shadow: inset 0 0 4px #E7E7E7;
-				box-shadow: inset 0 0 4px #E7E7E7;
-			
-			">
+			<div style="padding: 20px; padding-top:10px; background:white; min-height: 300px; border: 1px solid #DEDEDE; -webkit-box-shadow: 0 0 1px white; -moz-box-shadow: 0 0 1px white; box-shadow: 0 0 1px white; -webkit-box-shadow: inset 0 0 4px #E7E7E7; -moz-box-shadow: inset 0 0 4px #E7E7E7; box-shadow: inset 0 0 4px #E7E7E7;">
+				<div style="margin-bottom:10px; overflow: hidden; margin-right: -10px;">
+				<%=link_to(new_document_folder_path, {:class=>"btn btn-success btn-mini", style: "float:right; margin-top:0px", remote: true}) do%>
+					<i class="icon-folder-close icon-white"></i> create folder
+				<%end%>
+				</div>
 			
 				<% current_user.document_folders.where("parent_folder_id is null").each do |document_folder|%>
 				<div>					
@@ -64,4 +59,6 @@
 
 </div>
 
+<div id="form-module" style="position: absolute; top: 100px;">
+</div>
 

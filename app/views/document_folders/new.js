@@ -1,0 +1,1 @@
+$("#form-module").empty().append('<%= escape_javascript(render "/document_folders/form")%>');

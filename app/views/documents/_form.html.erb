@@ -7,7 +7,7 @@
     <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
     <div class="row fileupload-buttonbar">
       <div class="span9">
-		<%= link_to new_document_folder_path, {:class=>"btn btn-primary",:style=>"margin-bottom:10px; margin-right: 5px; float:left;"} do %>
+		<%= link_to new_document_folder_path, {:class=>"btn btn-primary",:style=>"margin-bottom:10px; margin-right: 5px; float:left;", remote: true} do %>
 			<i class="icon-folder-open icon-white"></i>
 			Create Folder
 		<%end%>
