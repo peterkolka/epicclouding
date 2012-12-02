@@ -64,7 +64,9 @@
 	    </div>
 	 </div>
 	<div class="row file-management-bar" >
-		
+		<% if params[:controller] == "documents" && params[:action] == "show" %>
+			<%= render "/documents/show_title"%>
+		<% end%>
 	</div>
 
 

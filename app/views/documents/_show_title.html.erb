@@ -1,0 +1,12 @@
+<div class="container">
+	<div class="row" style="margin-top:10px">
+		<div class="span10">
+			<h2 style="margin:0px; display: inline"><%=@document.name%></h2>
+		</div>
+		<div class="span2">
+	<%= link_to(@document.file_url, :class=>"btn btn btn-right btn-success" ) do %>
+		<i class="icon-download icon-white"></i> Download
+	<%end%>
+		</div>
+	</div>
+</div>

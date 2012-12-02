@@ -1,6 +1,19 @@
-<h1>Editing document</h1>
+<%= link_to 'View File', @document, :class=>"btn" %> 
+<%= link_to 'Back to Files', documents_path, :class=>"btn" %>
 
-<%= render 'form' %>
+<%= form_for @document do |f|%>
+	<div class="fields">
+		<%=f.label :name%> 
+		<%= f.text_field :name, style: "width: 500px"%>
+	</div>
+	<div class="fields">
+		<%=f.label :description%> 
+		<%= f.text_area :description, style: "width: 500px" %>
+	</div>	
+	<div class="fields">
+		<%=f.label :public%> 
+		<%= f.check_box :public%>
+	</div>	
 
-<%= link_to 'Show', @document %> |
-<%= link_to 'Back', documents_path %>
+	<%= f.submit(:class=>"btn")%>
+<%end%>
