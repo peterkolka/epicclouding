@@ -55,7 +55,11 @@
 		<div class="row">
 			<div class="span9">
 				<div id='folder-files' style="margin-top: -18px;">
-					<%= render '/documents/form'%>
+					<% if params[:view].present? && params[:view] == 'grid'%>
+						<%= render '/documents/grid_form'%>
+					<%else%>
+						<%= render '/documents/form'%>
+					<%end%>
 				</div>
 			</div>
 		</div>

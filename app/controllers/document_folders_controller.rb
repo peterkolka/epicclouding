@@ -14,10 +14,11 @@ class DocumentFoldersController < ApplicationController
   # GET /document_folders/1.json
   def show
     @document_folder = DocumentFolder.find(params[:id])
-
+    @documents = @document_folder.documents
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @document_folder }
+    #  format.json { render json: @document_folder }
+    #  format.json { render json: current_user.documents.map{|document| document.to_jq_upload } }       
       format.js
     end
   end

@@ -2,12 +2,16 @@ class DocumentsController < ApplicationController
   # GET /documents
   # GET /documents.json
   def index
-    @documents = Document.all
+   # @documents = current_user.documents
 
     respond_to do |format|
       format.html # index.html.erb
    #   format.json { render json: @documents }
-        format.json { render json: @documents.map{|document| document.to_jq_upload } } 
+      if @document_folder.present?
+      #  format.json { render json: @document_folder.documents.map{|document| document.to_jq_upload } } 
+      else
+        format.json { render json: current_user.documents.map{|document| document.to_jq_upload } }        
+      end
     end
   end
 
@@ -46,12 +50,12 @@ class DocumentsController < ApplicationController
 
    respond_to do |format|
       if @document.save
-       format.html  {
-                  render :json => [@document.to_jq_upload].to_json,
-                  :content_type => 'text/html',
-                  :layout => false
-                }
-       format.json { render json: [@document.to_jq_upload].to_json, status: :created, location: @document }
+        format.html  {
+                   render :json => [@document.to_jq_upload].to_json,
+                   :content_type => 'text/html',
+                   :layout => false
+                 }
+        format.json { render json: [@document.to_jq_upload].to_json, status: :created, location: @document }
       else
        format.html { render action: "new" }
         format.json { render json: @document.errors, status: :unprocessable_entity }
