@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   has_many :documents
   has_many :shares
   has_many :document_folders
+  has_many :comments
   
   
 

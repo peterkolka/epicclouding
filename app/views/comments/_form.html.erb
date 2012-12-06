@@ -1,0 +1,14 @@
+<%= form_for(@document.comments.new) do |f| %>
+
+
+
+    <%= f.hidden_field :document_id %>
+
+
+  <div class="field">
+    <%= f.text_area(:comment, rows: 4, :style=>"width:600px") %>
+  </div>
+  <div class="actions">
+    <%= f.submit("comment", :class=>"btn btn-info") %>
+  </div>
+<% end %>

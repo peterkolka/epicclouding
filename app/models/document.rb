@@ -3,6 +3,7 @@ class Document < ActiveRecord::Base
   mount_uploader :file, FileUploader
   belongs_to :user
   has_many :shares
+  has_many :comments
   belongs_to :document_folder
   before_create :default_name
   
