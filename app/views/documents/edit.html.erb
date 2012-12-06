@@ -6,6 +6,10 @@
 		<%=f.label :name%> 
 		<%= f.text_field :name, style: "width: 500px"%>
 	</div>
+	<div class="field">
+		<%= f.label :document_folder_id %>
+		<%= f.collection_select :document_folder_id, current_user.document_folders.order(:name), :id, :name, include_blank: true %>
+	</div>	
 	<div class="fields">
 		<%=f.label :description%> 
 		<%= f.text_area :description, style: "width: 500px" %>

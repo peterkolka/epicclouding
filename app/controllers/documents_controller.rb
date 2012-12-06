@@ -2,16 +2,26 @@ class DocumentsController < ApplicationController
   # GET /documents
   # GET /documents.json
   def index
-   # @documents = current_user.documents
+  #  if params[:id].present?
+    #  @document_folder = DocumentFolder.find(params[:id])
+    #   @documents = @document_folder.documents
+  #  end
+    
+ 
+ 
+     @documents = current_user.documents #Document.all #where(user_id: current_user.id)
+  
+
+
 
     respond_to do |format|
       format.html # index.html.erb
    #   format.json { render json: @documents }
-      if @document_folder.present?
+    
       #  format.json { render json: @document_folder.documents.map{|document| document.to_jq_upload } } 
-      else
-        format.json { render json: current_user.documents.map{|document| document.to_jq_upload } }        
-      end
+ 
+        format.json { render json: @documents.map{|document| document.to_jq_upload } }        
+
     end
   end
 
@@ -70,7 +80,7 @@ class DocumentsController < ApplicationController
 
     respond_to do |format|
       if @document.update_attributes(params[:document])
-        format.html { redirect_to @document, notice: 'Document was successfully updated.' }
+        format.html { redirect_to root_url , notice: 'Document was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

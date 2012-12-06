@@ -1,5 +1,5 @@
 class Document < ActiveRecord::Base
-  attr_accessible :description, :file, :name, :public #, :user_id
+  attr_accessible :description, :file, :name, :public, :document_folder_id
   mount_uploader :file, FileUploader
   belongs_to :user
   has_many :shares

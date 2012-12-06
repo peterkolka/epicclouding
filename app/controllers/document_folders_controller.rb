@@ -63,7 +63,7 @@ class DocumentFoldersController < ApplicationController
 
     respond_to do |format|
       if @document_folder.update_attributes(params[:document_folder])
-        format.html { redirect_to @document_folder, notice: 'Document folder was successfully updated.' }
+        format.html { redirect_to root_url, notice: 'Document folder was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
