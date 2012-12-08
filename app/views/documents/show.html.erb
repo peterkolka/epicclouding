@@ -14,21 +14,11 @@
 </div>
 
 
-<div class="row" style="margin-top: 20px">
-	<div class="span12">
-		<h3 style="border-bottom: 1px solid #DEDEDE;
-		-webkit-box-shadow: 0 1px 1px white;
-		-moz-box-shadow: 0 1px 1px white;
-		box-shadow: 0 1px 1px white; margin-bottom:20px">comments</h3>
-	  <%= render @document.comments %>
-	</div>
+<div id="comment-container">
+	<%= render "/documents/comments"%>
 </div>
 
-<div class="row" style="margin-top: 20px">
-	<div class="span12">
-	  <%= render "/comments/form" %>
-	</div>
-</div>
+
 
 
 

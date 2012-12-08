@@ -1,0 +1,1 @@
+$('#comment-container').empty().append('<%= escape_javascript(render "/documents/comments")%>');

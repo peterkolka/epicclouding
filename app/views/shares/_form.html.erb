@@ -8,11 +8,12 @@
     <p>You are about to share this file. If you would like to password protect the file, just enter a password below</p>
 
 	<div class="fields">
-		<%= f.label :encrypted_password, "Password"%>	
-		<%= f.password_field :encrypted_password%>
+		<%= f.label :password, "Password"%>	
+		<%= f.password_field :password%>
 	</div>
-<%=f.hidden_field :user_id%>
-<%=f.hidden_field :document_id%>
+
+		<%= f.password_field :document_id%>
+
 
 
 	

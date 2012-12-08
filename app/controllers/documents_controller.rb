@@ -28,11 +28,17 @@ class DocumentsController < ApplicationController
   # GET /documents/1
   # GET /documents/1.json
   def show
-    @document = Document.find(params[:id])
+         @document = Document.find(params[:id])   
+ #   if @document.shares.count > 0
+     if @document.shares.present? && !@document.shares.first.encrypted_password.blank?
+       redirect_to root_url
+  #    end
+#   else
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @document }
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @document }
+      end
     end
   end
 

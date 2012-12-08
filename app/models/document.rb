@@ -1,4 +1,6 @@
+require 'bcrypt'
 class Document < ActiveRecord::Base
+  include BCrypt
   attr_accessible :description, :file, :name, :public, :document_folder_id
   mount_uploader :file, FileUploader
   belongs_to :user
@@ -6,9 +8,12 @@ class Document < ActiveRecord::Base
   has_many :comments
   belongs_to :document_folder
   before_create :default_name
-  
+  before_create :generate_encrypted_path  
   
   include Rails.application.routes.url_helpers
+
+
+
 
   def to_jq_upload
     {
@@ -34,6 +39,17 @@ class Document < ActiveRecord::Base
 
 
   def default_name
-    self.name ||= File.basename(file.filename, '.*').titleize if file
+    if self.name.blank?
+      self.name ||= File.basename(file.filename, '.*').titleize if file
+    end
   end
+  
+
+    def generate_encrypted_path
+      if self.encrypted_path.blank?
+        @password = "#{Time.now.strftime('%M%y%d%I%m')}#{user.created_at.strftime('%M%y%d%I%m')}"
+        self.encrypted_path = @password
+      end
+    end
+  
 end

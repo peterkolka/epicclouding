@@ -1,8 +1,21 @@
+
+<%if comment.user.present? %>
+<div style="margin-bottom: 10px;">
 <div class="row">
-	<div class="span3">
-		<%=comment.user.profile.name%>
-	</div>
-	<div class="span9">
-		<%=comment.comment%>
+	<div class="span12" style="line-height: 13px">
+
+			<%=comment.comment%>
+
+	</div>	
+</div>
+<div class="row">
+	<div class="span12">
+		<%=link_to(comment.user.profile.name, comment.user.profile, :style=>"font-size:10px; line-height: 10px;") %> 
+		<span style="font-size:10px; line-height: 10px;">
+			|
+			<%= I18n.l comment.created_at, :format => :short%>
+		</span>
 	</div>
 </div>
+</div>
+<%end%>

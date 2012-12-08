@@ -1,4 +1,4 @@
-<%= form_for(@document.comments.new) do |f| %>
+<%= form_for(@document.comments.new, remote: true) do |f| %>
 
 
 
@@ -12,3 +12,4 @@
     <%= f.submit("comment", :class=>"btn btn-info") %>
   </div>
 <% end %>
+

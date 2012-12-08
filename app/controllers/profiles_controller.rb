@@ -37,7 +37,7 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1/edit
   def edit
-    @profile = Profile.find(params[:id])
+    @profile = current_user.profile
   end
 
   # POST /profiles

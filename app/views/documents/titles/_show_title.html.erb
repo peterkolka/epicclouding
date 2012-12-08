@@ -1,12 +1,15 @@
 <div class="container">
 	<div class="row" style="margin-top:10px">
-		<div class="span10">
+		<div class="span8">
 			<h2 style="margin:0px; display: inline"><%=@document.name%></h2>
 		</div>
-		<div class="span2">
+		<div class="span4">			
 	<%= link_to(@document.file_url, :class=>"btn btn btn-right btn-success" ) do %>
 		<i class="icon-download icon-white"></i> Download
 	<%end%>
+	<%= link_to({:controller=>"shares", action: "new", id: @document.id}, :class=>"btn btn btn-right btn-primary", style: "margin-right: 10px;") do %>
+		<i class="icon-download icon-white"></i> Share
+	<%end%>	
 		</div>
 	</div>
 </div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121206191844) do
+ActiveRecord::Schema.define(:version => 20121208193652) do
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(:version => 20121206191844) do
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
     t.integer  "document_folder_id"
+    t.string   "encrypted_path"
   end
 
   create_table "messages", :force => true do |t|
@@ -65,6 +66,7 @@ ActiveRecord::Schema.define(:version => 20121206191844) do
     t.string   "encrypted_password"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+    t.string   "encrypted_key"
   end
 
   create_table "users", :force => true do |t|
