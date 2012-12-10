@@ -1,0 +1,12 @@
+<%if message.user.present?%>
+	<div class="message">
+		<div class="right">
+			<%= I18n.localize(message.created_at.to_date, :format => :short) unless message.created_at.blank? %>
+		</div>
+		<div class="message-image">
+			<%= image_tag(message.user.profile.avatar.url(:thumb), :width=> 55, :height=>55)%>		
+		</div>
+		<b> <%= link_to(message.user.profile.name, message.user.profile, :class=>"message-sender")%> </b><br>
+		<%= message.content%>
+	</div>
+<%end%>

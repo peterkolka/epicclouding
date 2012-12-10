@@ -20,6 +20,54 @@
 }
 
 
+.last-message{
+	border-bottom: 1px solid #DEDEDE;
+	-webkit-box-shadow: 0 1px 1px white;
+	-moz-box-shadow: 0 1px 1px white;
+	box-shadow: 0 1px 1px white;
+	overflow:hidden;
+	&:hover{
+		background: #B6D3E0;		
+	}
+	.right{
+		float: right;
+		text-align: right;
+	}	
+}
+
+.message-active{
+	background: #DFEFF5;
+}
+
+
+.message-content{
+	float: left;
+	width: 200px;
+}
+.message-image{
+	float: left;
+	margin-right: 20px;
+}
+
+.message{
+	padding-bottom: 10px;
+	padding-top: 10px;
+	overflow: hidden;
+	border-bottom: 1px solid #DEDEDE;
+	-webkit-box-shadow: 0 1px 1px white;
+	-moz-box-shadow: 0 1px 1px white;
+	box-shadow: 0 1px 1px white;		
+}
+
+.new-message{
+	width: 100%;
+	background-color: #DFEFF5;
+	padding-top: 10px;
+	text-align: center;	
+	overflow: hidden;	
+}
+.new-message-content{width:450px;text-align:left;min-height:18px}
+
 .show-image{
 	-webkit-box-shadow: 0 5px 10px #333;
 	-moz-box-shadow: 0 5px 10px #333;

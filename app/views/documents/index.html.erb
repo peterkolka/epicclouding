@@ -29,9 +29,13 @@
 		<div style="text-align: right; font-size: 11px; line-height: 11px; margin-bottom: 20px; margin-top: 5px;">
 			<%=current_user.amount_used%>GM of <%=current_user.amount%>GB used 
 		</div>
+
+		<% if current_user.oauth_expires_at.blank? or current_user.oauth_expires_at < Time.now%>
+			<%=link_to("connect with Facebook", '/auth/facebook', :class=>"btn btn-primary", :style=>"margin-bottom:20px;")%>
+		<%end%>
 				
 			<div class="white-box">
-				<div style="margin-bottom:10px; overflow: hidden; margin-right: -10px;">
+				<div style="margin-bottom:20px; overflow: hidden; margin-right: -10px;">
 				<%=link_to(new_document_folder_path, {:class=>"btn btn-success btn-mini", style: "float:right; margin-top:0px", remote: true}) do%>
 					<i class="icon-folder-close icon-white"></i> create folder
 				<%end%>

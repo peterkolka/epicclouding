@@ -1,0 +1,13 @@
+<% if current_user.discussions.any? && current_user.messages.any?%>
+<div class="span4">
+	<div >	
+		<%= render :partial => "/messages/last_message", :collection => @discussions, as: "discussion" %>
+	</div>
+</div>
+<%else%>
+<div class="span4">
+	<div style="font-style:italic">	
+		inbox empty
+	</div>
+</div>
+<%end%>

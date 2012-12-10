@@ -3,7 +3,7 @@
 
 
 
-
+<% if @document.authorized?(current_user.id?)%>
 
 <div class="row" style="margin-top:-10px">
 	<div class="span12">
@@ -18,11 +18,14 @@
 	<%= render "/documents/comments"%>
 </div>
 
+<% else %>
+
+
+
+<%= render "/user_shares/form"%>
 
 
 
 
 
-
-
-
+<%end%>

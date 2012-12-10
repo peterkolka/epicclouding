@@ -30,8 +30,8 @@ class DocumentsController < ApplicationController
   def show
          @document = Document.find(params[:id])   
  #   if @document.shares.count > 0
-     if @document.shares.present? && !@document.shares.first.encrypted_password.blank?
-       redirect_to root_url
+    # if @document.shares.present? && !@document.shares.first.encrypted_password.blank?
+    #   redirect_to root_url
   #    end
 #   else
 
@@ -39,7 +39,7 @@ class DocumentsController < ApplicationController
         format.html # show.html.erb
         format.json { render json: @document }
       end
-    end
+#    end
   end
 
   # GET /documents/new
@@ -62,6 +62,8 @@ class DocumentsController < ApplicationController
   # POST /documents
   # POST /documents.json
   def create
+
+    
     @document = current_user.documents.create(params[:document])
 
    respond_to do |format|

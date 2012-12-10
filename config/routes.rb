@@ -1,4 +1,12 @@
 Epicclouding::Application.routes.draw do
+  resources :speakers
+
+  resources :discussions
+
+  resources :messages
+
+  resources :user_shares
+
   resources :comments
 
   resources :document_folders
@@ -10,6 +18,9 @@ Epicclouding::Application.routes.draw do
   resources :profiles
 
   devise_for :users
+  
+  match 'auth/:provider/callback', to: 'application#user_auth'
+  match 'auth/failure', to: redirect('/')
 
   
   resources :users, only: [:show, :edit, :update]
@@ -19,6 +30,9 @@ Epicclouding::Application.routes.draw do
   devise_for :users do
     get "/sign_out" => "devise/sessions#destroy", :as => :destroy_user_session
   end
+  
+  
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -42,11 +42,8 @@ class SharesController < ApplicationController
   # POST /shares
   # POST /shares.json
   def create
-    @document = current_user.documents.find(params[:id])
-    @share = @document.shares.new(params[:share])
-    @share.update_attribute(:user_id, current_user.id)
-    @share.update_attribute(:document_id, @document.id)
-
+    @document = current_user.documents.find(params[:share][:document_id])    
+    @share = @document.shares.new(params[:share])    
 
     respond_to do |format|
       if @share.save

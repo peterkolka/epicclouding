@@ -9,8 +9,12 @@
 		<h3 class = "border-bottom" style="padding-bottom: 10px">
 			Joined: <%= I18n.localize(@profile.created_at.to_date, :format => :long)%>
 		</h3>
-		<div style="margin-top: 10px; padding-bottom: 10px ;margin-bottom:10px">
-		 <%= link_to("Message", {}, :class=>"btn btn-large" ) %>
+		<div style="margin-top: 10px; padding-bottom: 10px ;margin-bottom:10px">		
+		<% unless @profile.user_id == current_user.id%>
+			<%=link_to({controller: "messages", action:"new", recipient_id: @profile.user_id}, :class=>"btn btn-primary") do%>
+			<i class="icon-envelope icon-white" style="margin-right:5px; margin-top:0px;"></i>send message
+			<%end%>
+		<% end %>
 		</div>
 	</div>
 	<div class="span9">

@@ -11,4 +11,15 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  def user_auth
+
+    auth = env["omniauth.auth"]
+    current_user.update_attributes(
+    :provider => auth.provider,
+    :uid => auth.uid,
+    :oauth_token => auth.credentials.token,
+    :oauth_expires_at => Time.at(auth.credentials.expires_at))    
+    redirect_to root_url
+  end
+  
 end

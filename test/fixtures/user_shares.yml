@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 1
+  share_id: 
+  approved_at: 2012-12-09 15:13:46
+
+two:
+  user_id: 1
+  share_id: 
+  approved_at: 2012-12-09 15:13:46

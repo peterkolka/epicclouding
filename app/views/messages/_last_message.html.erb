@@ -1,0 +1,17 @@
+
+<%if discussion.messages.any? %>
+<%= link_to(discussion) do%>
+		<div class='last-message <%= "message-active" if discussion.id == @discussion.id  %>' style='padding: 10px; '>
+		<div class="message-image">
+			<%= image_tag(discussion.with_user(current_user.id).first.profile.avatar.url(:mini), :width=> 50, :height=>50, :style=>"border: 2px solid white")%>
+		</div>
+		<div class="right">
+			<%= discussion.messages.last.created_at.to_date.to_formatted_s(:short)%>
+		</div>	
+		<div class="message-sender"> <%= discussion.with_user(current_user.id).first.profile.name %> </div>
+		<div class="message-content" style="width:200px">
+			<%= discussion.messages.last.content%>
+		</div>
+	</div>
+<%end%>
+<%end%>

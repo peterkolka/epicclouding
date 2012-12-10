@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121208193652) do
+ActiveRecord::Schema.define(:version => 20121210201122) do
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
@@ -20,6 +20,12 @@ ActiveRecord::Schema.define(:version => 20121208193652) do
     t.text     "comment"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+  end
+
+  create_table "discussions", :force => true do |t|
+    t.integer  "messages_count"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "document_folders", :force => true do |t|
@@ -47,8 +53,9 @@ ActiveRecord::Schema.define(:version => 20121208193652) do
     t.integer  "recipient_id"
     t.text     "content"
     t.boolean  "read"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "discussion_id"
   end
 
   create_table "profiles", :force => true do |t|
@@ -67,6 +74,22 @@ ActiveRecord::Schema.define(:version => 20121208193652) do
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
     t.string   "encrypted_key"
+  end
+
+  create_table "speakers", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "discussion_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "user_shares", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "share_id"
+    t.datetime "approved_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "encrypted_password"
   end
 
   create_table "users", :force => true do |t|
@@ -90,6 +113,10 @@ ActiveRecord::Schema.define(:version => 20121208193652) do
     t.integer  "country_id"
     t.boolean  "tos"
     t.integer  "amount"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "oauth_token"
+    t.datetime "oauth_expires_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

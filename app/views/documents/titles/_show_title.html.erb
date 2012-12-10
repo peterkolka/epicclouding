@@ -3,13 +3,19 @@
 		<div class="span8">
 			<h2 style="margin:0px; display: inline"><%=@document.name%></h2>
 		</div>
-		<div class="span4">			
+		<div class="span4">	
+	<% if @document.authorized?(current_user.id?)%>			
 	<%= link_to(@document.file_url, :class=>"btn btn btn-right btn-success" ) do %>
 		<i class="icon-download icon-white"></i> Download
 	<%end%>
+	<%end%> 
+	
+
+	<% if @document.user_id == current_user.id && !@document.shares.any? %>	
 	<%= link_to({:controller=>"shares", action: "new", id: @document.id}, :class=>"btn btn btn-right btn-primary", style: "margin-right: 10px;") do %>
 		<i class="icon-download icon-white"></i> Share
 	<%end%>	
+	<%end%>
 		</div>
 	</div>
 </div>

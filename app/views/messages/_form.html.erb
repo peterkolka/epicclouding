@@ -1,0 +1,20 @@
+
+<%= form_for(@message, :remote=>true) do |f| %>
+
+	<% @message.user_id = current_user.id%>
+
+	<div style="overflow: hidden">	
+
+	
+	
+    <%= f.hidden_field :user_id %>
+	<%= f.hidden_field :discussion_id %>
+
+
+	
+    <%= f.text_area(:content, {:class =>"new-message-content", cols: 80,rows: 8, :value=>""}) %><br><br>
+	</div>
+    <%= f.submit("send", {:class=>"btn btn-primary", :style=>"float:none"} ) %><br><br>
+
+<% end %>
+

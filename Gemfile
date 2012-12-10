@@ -28,7 +28,8 @@ gem 'bootstrap-will_paginate'
 #gem 'fog'
 gem 'will_paginate-bootstrap'
 
-
+gem 'omniauth-facebook'
+gem 'koala'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

@@ -13,6 +13,17 @@ class Document < ActiveRecord::Base
   include Rails.application.routes.url_helpers
 
 
+  def authorized?(user_id)
+    if shares.where("encrypted_password is not null").any? 
+      if UserShare.find_by_user_id_and_share_id(user_id, self.shares.first.id).present?
+       true
+      else
+        false
+      end
+    else
+      true
+    end
+  end
 
 
   def to_jq_upload
@@ -35,6 +46,7 @@ class Document < ActiveRecord::Base
   def file_size
      file.file.size
   end  
+  
   
 
 

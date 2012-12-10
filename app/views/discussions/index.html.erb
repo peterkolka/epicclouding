@@ -1,0 +1,35 @@
+
+
+
+
+
+<div class="container" style="top:-50px;">
+	<div class="row" style="margin-bottom: 10px;">
+		<div class="span4">
+			<span style="font-weight: 600; color: black; font-size:16px; line-height: 24px;">Inbox</span>
+		</div>
+		<div class="span7 offset1">
+			<%= link_to(@recipient.profile.fullname, @recipient.profile, :style=>"font-size:18px; line-height:24px")%>		
+		</div>		
+	</div>
+	
+	
+	<div class="row" style="margin-bottom:10px">
+		<%= render "messages/panel"%>
+		<div class="span7 offset1">
+			
+			<div class="message-box">
+				<%= render @messages if @messages.present?%>
+			</div>
+			<div class ="new-message">
+				<%= render "form"%>	
+			</div>			
+			
+		</div>
+	</div>	
+	
+	
+	
+
+</div>
+

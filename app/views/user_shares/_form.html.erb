@@ -1,0 +1,35 @@
+
+
+
+<div class="row" style="margin-top:-10px">
+	<div class="span12">
+<div class="modal">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3 style="color: #C94242;">Password protected</h3>
+  </div>
+  <div class="modal-body">
+    <p>This file is password protected. You'll only need to enter your password once. After that we'll remember you until the owner of this document changes their password</p>
+
+	<%= form_for @document.shares.first.user_shares.new, html:{style: "margin:0px"} do |f|%>
+		<%= f.label :password%>
+		<%= f.password_field :password%>
+		<div class="field">
+	    <%= f.label :share_id %><br />
+	    <%= f.hidden_field :share_id %>
+	  </div>
+
+  </div>
+	
+
+
+
+  <div class="modal-footer">
+	 <%= f.submit("Submit Password", :class=>"btn btn-success" ) %>
+
+  </div>
+
+	<%end%>
+</div>
+	</div>
+</div>

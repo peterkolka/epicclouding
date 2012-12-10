@@ -13,12 +13,18 @@ class User < ActiveRecord::Base
   has_many :shares
   has_many :document_folders
   has_many :comments
+  has_many :user_shares
   
+  has_many :speakers
+  has_many :discussions, :through => :speakers  
+  
+  has_many :messages
+  has_many :recieved_messages, :class_name => "Message", :foreign_key => "recipient_id"
   
 
   
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :avatar, :about, :amount
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :avatar, :about, :amount, :provider, :oauth_token, :uid, :oauth_expires_at
   # attr_accessible :title, :body
   
   def amount_used
@@ -32,5 +38,17 @@ class User < ActiveRecord::Base
   def percent_used
     "#{((amount_used/amount) *100).round(0)}"
   end
+  
+  def new_message_count
+    recieved_messages.where(read: 0).count
+  end
+  
+  def facebook
+    @facebook ||= Koala::Facebook::API.new(oauth_token)
+    block_given? ? yield(@facebook) : @facebook
+  rescue Koala::Facebook::APIError => e
+    logger.info e.to_s
+    nil # or consider a custom null object
+  end  
   
 end

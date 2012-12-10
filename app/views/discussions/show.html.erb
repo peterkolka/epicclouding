@@ -1,0 +1,30 @@
+<div class="container" style="top:-50px;">
+	<div class="row" style="margin-bottom: 10px;">
+		<div class="span4" style="border-bottom: 1px solid #DEDEDE;
+		-webkit-box-shadow: 0 1px 1px white;
+		-moz-box-shadow: 0 1px 1px white;
+		box-shadow: 0 1px 1px white;">
+			<span style="font-weight: 600; color: black; font-size:16px; line-height: 24px; ">Inbox</span>
+		</div>
+		<div class="span7 offset1" style="border-bottom: 1px solid #DEDEDE;
+		-webkit-box-shadow: 0 1px 1px white;
+		-moz-box-shadow: 0 1px 1px white;
+		box-shadow: 0 1px 1px white;">
+			<%= link_to(@discussion.with_user(current_user.id).first.profile.name, @discussion.with_user(current_user.id).first.profile, :style=>"font-size:18px; line-height:24px")%>		
+		</div>		
+	</div>
+	
+	
+	<div class="row" style="margin-bottom:10px">
+		<%= render "messages/panel"%>
+		<div class="span7 offset1">
+			
+			<div class="message-box">
+				<%= render partial: "/messages/message", collection: @discussion.messages %>
+			</div>
+			<div class ="new-message">
+				<%= render "messages/form"%>	
+			</div>			
+			
+		</div>
+	</div>
