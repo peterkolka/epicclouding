@@ -13,6 +13,17 @@ class Document < ActiveRecord::Base
   include Rails.application.routes.url_helpers
 
 
+  def type_icon
+    file_type = self.file.file.extension.downcase
+    if ["jpeg", "png", "jpg"].include?(file_type)
+     self.file.url
+  
+   else
+      "/assets/projects/png/Documents.png"
+    end
+  end
+
+
   def authorized?(user_id)
     if shares.where("encrypted_password is not null").any? 
       if UserShare.find_by_user_id_and_share_id(user_id, self.shares.first.id).present?
@@ -28,7 +39,8 @@ class Document < ActiveRecord::Base
 
   def to_jq_upload
     {
-      "name" => self.name,
+      "type_icon" => self.type_icon,      
+      "name" => self.name,      
       "size" => file.size,
       "url" => self.file_url,
       "show_url" => document_path(self),

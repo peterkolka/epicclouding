@@ -56,8 +56,8 @@
 
 <!-- The template to display files available for upload -->
 <script id="template-upload" type="text/x-tmpl">
-	<div style="position: fixed; bottom: 0px; background: #333">
   {% for (var i=0, file; file=o.files[i]; i++) { %}
+
   <tr class="template-upload fade">
     <td class="preview"><span class="fade"></span></td>
     <td class="name"><span>{%=file.name%}</span></td>
@@ -84,8 +84,9 @@
       </button>
       {% } %}</td>
   </tr>
+
   {% } %}
-	</div>
+
 </script>
 
 <!-- The template to display files available for download -->
@@ -101,8 +102,11 @@
         <div class="span1">{% if (file.thumbnail_url) { %}
           <a href="{%=file.url%}" title="{%=file.name%}" rel="gallery" download="{%=file.name%}"><img src="{%=file.thumbnail_url%}"></a>
           {% } %}</div>
-        <div class="span3">
-          <a href="{%=file.show_url%}" title="{%=file.name%}" rel="{%=file.thumbnail_url&&'gallery'%}">{%=file.name%}</a>
+        <div class="span1">
+      		<img src="{%=file.type_icon%}", height='40'> 
+        </div>
+        <div class="span2">
+      		<a href="{%=file.show_url%}" title="{%=file.name%}" rel="{%=file.thumbnail_url&&'gallery'%}">{%=file.name%}</a>
         </div>
         <div class="span1"><span>{%=o.formatFileSize(file.size)%}</span></div>
         <div colspan="2"></div>
