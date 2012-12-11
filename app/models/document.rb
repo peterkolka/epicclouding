@@ -19,7 +19,7 @@ class Document < ActiveRecord::Base
      self.file.url
   
    else
-      "/assets/documents.png"
+      "/assets/document.png"
     end
   end
 
